@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClientController as CL;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,4 +18,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', fn() => '<h1 style="color:crimson;">Hello</h1>');
+Route::prefix('clients')->name('clients-')->group(function () {
+    Route::get('/create', [CL::class, 'create'])->name('create');
+    Route::post('/create', [CL::class, 'store'])->name('store');
+    
+    
+    });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
