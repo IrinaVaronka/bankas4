@@ -41,7 +41,7 @@ class ClientController extends Controller
         [
             'name.min' => 'Name is too short - should be at least 3 characters',
             'surname.min' => 'Surname is too short - should be at least 3 characters',
-            'idPerson.size' => 'Personal ID should have 11 digits'
+            'idPerson.min' => 'Personal ID should have 11 digits'
         ]);
 
         if ($validator->fails()) {
