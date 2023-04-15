@@ -17,7 +17,7 @@ class ClientController extends Controller
     
     public function index()
     {
-        $clients = Client::all()->sortBy('name');
+        $clients = Client::all()->sortBy('surname');
 
         return view('clients.index', [
             'clients' => $clients
@@ -71,6 +71,24 @@ class ClientController extends Controller
         return view('clients.show', [
             'client' => $client
         ]);
+    }
+
+    public function editPerson(Client $client)
+    {
+        return view('clients.editPerson', [
+            'client' => $client
+        ]);
+    }
+
+    public function updatePerson(Request $request, Client $client)
+    {
+
+        $client->name = $request->name;
+        $client->surname = $request->surname;
+        $client->save();
+        return redirect()
+            ->route('clients-index')
+            ->with('info', 'Personal information was updated');
     }
 
     

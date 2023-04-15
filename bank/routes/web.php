@@ -23,6 +23,8 @@ Route::prefix('clients')->name('clients-')->group(function () {
     Route::get('/create', [CL::class, 'create'])->name('create');
     Route::post('/create', [CL::class, 'store'])->name('store');
     Route::get('/{client}', [CL::class, 'show'])->name('show');
+    Route::get('/editPerson/{client}', [CL::class, 'editPerson'])->name('editPerson');
+    Route::put('/editPerson/{client}', [CL::class, 'updatePerson'])->name('updatePerson');
     Route::get('/edit/{client}', [CL::class, 'edit'])->name('edit');
     Route::put('/edit/{client}', [CL::class, 'update'])->name('update');
     Route::get('/editDeduct/{client}', [CL::class, 'editDeduct'])->name('editDeduct');
