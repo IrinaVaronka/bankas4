@@ -155,6 +155,7 @@ class ClientController extends Controller
                 ->route('clients-editDeduct', $client)
                 ->with('info','You want to deduct too much!');
         }
+       
         $client->amount = $amountMinus;
         $client->save();
         return redirect()

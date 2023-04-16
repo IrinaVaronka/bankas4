@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController as CL;
+use App\Http\Controllers\OrderController as Ac;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,21 @@ Route::prefix('clients')->name('clients-')->group(function () {
     Route::delete('/delete/{client}', [CL::class, 'destroy'])->name('delete');
     
     });
+
+    Route::prefix('accounts')->name('accounts-')->group(function () {
+        Route::get('/', [Ac::class, 'index'])->name('index');
+        Route::get('/create', [Ac::class, 'create'])->name('create');
+        Route::post('/create', [Ac::class, 'store'])->name('store');
+        Route::get('/{account}', [Ac::class, 'show'])->name('show');
+        Route::get('/editPerson/{account}', [Ac::class, 'editPerson'])->name('editPerson');
+        Route::put('/editPerson/{account}', [Ac::class, 'updatePerson'])->name('updatePerson');
+        Route::get('/edit/{account}', [Ac::class, 'edit'])->name('edit');
+        Route::put('/edit/{account}', [Ac::class, 'update'])->name('update');
+        Route::get('/editDeduct/{account}', [Ac::class, 'editDeduct'])->name('editDeduct');
+        Route::put('/editDeduct/{account}', [Ac::class, 'updateDeduct'])->name('updateDeduct');
+        Route::delete('/delete/{account}', [Ac::class, 'destroy'])->name('delete');
+        
+        });
 
 Auth::routes();
 
