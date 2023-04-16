@@ -19,6 +19,8 @@ class ClientController extends Controller
     {
         $sort = $request->sort ?? '';
         $filter = $request->filter ?? '';
+        $per = (int) ($request->per ?? 5);
+        $page = $request->page ?? 1;
 
 
         $clients = match($filter) {
@@ -35,7 +37,7 @@ class ClientController extends Controller
             default => $clients
         };
 
-        $clients = $clients->get();
+        $clients = $clients->paginate($per)->withQueryString();
 
         // $clients = Client::all()->sortBy('surname');
 
@@ -44,7 +46,10 @@ class ClientController extends Controller
             'sortSelect' => Client::SORT,
             'sort' => $sort,
             'filterSelect' => Client::FILTER,
-            'filter' => $filter
+            'filter' => $filter,
+            'perSelect' => Client::PER,
+            'per' => $per,
+            'page' => $page
         ]);
     }
 

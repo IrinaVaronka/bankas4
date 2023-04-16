@@ -23,6 +23,12 @@ class Client extends Model
         'noAcc' => 'Clients who do not have accounts',
     ];
 
+    const PER = [
+        '5' => '5',
+        '15' => '15',
+        '40' => '40',
+    ];
+
 
 
 
