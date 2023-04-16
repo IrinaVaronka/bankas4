@@ -5,16 +5,57 @@
     <h1 class="text-center">Clients List</h1>
 
     <form action="{{route('clients-index')}}" method="get" class="mt-4">
-    <div class="mb-3">
-    <label class="form-label">Sort by:</label>
-        <select class="form-select">
-            <option selected>Open this select menu</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-        </select>
-        <div class="form-text">Please select your sort preferences</div>
-        </div>
+
+     <div class="container">
+                            <div class="row">
+
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Sort</label>
+                                        <select class="form-select" name="sort">
+                                            @foreach($sortSelect as $value => $text)
+                                            <option value="{{$value}}" @if($value===$sort) selected @endif>{{$text}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="form-text">Please select your sort preferences</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <label class="form-label">Filter</label>
+                                        <select class="form-select" name="filter">
+                                            @foreach($filterSelect as $value => $text)
+                                            <option value="{{$value}}" @if($value===$filter) selected @endif>{{$text}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="form-text">Please select your filter preferences</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="mb-3">
+                                        <label class="form-label">Results per page</label>
+                                        <select class="form-select" name="per">
+                                            {{-- @foreach($perSelect as $value => $text)
+                                            <option value="{{$value}}" @if($value===$per) selected @endif>{{$text}}</option>
+                                            @endforeach --}}
+                                        </select>
+                                        <div class="form-text">View preferences</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="sort-filter-buttons">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <a href="{{route('clients-index')}}" class="btn btn-danger">clear</a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
     </form>
     <ul>
         @forelse($clients as $client)

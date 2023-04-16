@@ -15,12 +15,36 @@ class ClientController extends Controller
     }
 
     
-    public function index()
+    public function index(Request $request)
     {
-        $clients = Client::all()->sortBy('surname');
+        $sort = $request->sort ?? '';
+        $filter = $request->filter ?? '';
+
+
+        $clients = match($filter) {
+            'plus' => Client::where('amount', '>', 0),
+            'minus' => Client::where('amount', '<', 0),
+            'zero' => Client::where('amount', '=', 0),
+            'noAcc' => Client::where('amount', '=', NULL),
+            default => Client::where('amount', '>', -999999)
+        };
+
+        $clients = match($sort) {
+            'surname_asc' => $clients->orderBy('surname'),
+            'surname_desc' => $clients->orderBy('surname', 'desc'),
+            default => $clients
+        };
+
+        $clients = $clients->get();
+
+        // $clients = Client::all()->sortBy('surname');
 
         return view('clients.index', [
-            'clients' => $clients
+            'clients' => $clients,
+            'sortSelect' => Client::SORT,
+            'sort' => $sort,
+            'filterSelect' => Client::FILTER,
+            'filter' => $filter
         ]);
     }
 
