@@ -106,7 +106,7 @@
         </table>
         @endforelse
     </ul>
-    <div class="m-4">
+    {{-- <div class="m-4">
         {{ $clients->links() }}
-    </div>
+    </div> --}}
     @endsection

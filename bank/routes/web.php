@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClientController as CL;
-use App\Http\Controllers\OrderController as Ac;
+use App\Http\Controllers\AccountController as AC;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,20 +34,20 @@ Route::prefix('clients')->name('clients-')->group(function () {
     
     });
 
-    Route::prefix('accounts')->name('accounts-')->group(function () {
-        Route::get('/', [Ac::class, 'index'])->name('index');
-        Route::get('/create', [Ac::class, 'create'])->name('create');
-        Route::post('/create', [Ac::class, 'store'])->name('store');
-        Route::get('/{account}', [Ac::class, 'show'])->name('show');
-        Route::get('/editPerson/{account}', [Ac::class, 'editPerson'])->name('editPerson');
-        Route::put('/editPerson/{account}', [Ac::class, 'updatePerson'])->name('updatePerson');
-        Route::get('/edit/{account}', [Ac::class, 'edit'])->name('edit');
-        Route::put('/edit/{account}', [Ac::class, 'update'])->name('update');
-        Route::get('/editDeduct/{account}', [Ac::class, 'editDeduct'])->name('editDeduct');
-        Route::put('/editDeduct/{account}', [Ac::class, 'updateDeduct'])->name('updateDeduct');
-        Route::delete('/delete/{account}', [Ac::class, 'destroy'])->name('delete');
+    // Route::prefix('accounts')->name('accounts-')->group(function () {
+    //     Route::get('/', [AC::class, 'index'])->name('index');
+    //     Route::get('/create', [AC::class, 'create'])->name('create');
+    //     Route::post('/create', [AC::class, 'store'])->name('store');
+    //     Route::get('/{account}', [AC::class, 'show'])->name('show');
+    //     Route::get('/editPerson/{account}', [AC::class, 'editPerson'])->name('editPerson');
+    //     Route::put('/editPerson/{account}', [AC::class, 'updatePerson'])->name('updatePerson');
+    //     Route::get('/edit/{account}', [AC::class, 'edit'])->name('edit');
+    //     Route::put('/edit/{account}', [AC::class, 'update'])->name('update');
+    //     Route::get('/editDeduct/{account}', [AC::class, 'editDeduct'])->name('editDeduct');
+    //     Route::put('/editDeduct/{account}', [AC::class, 'updateDeduct'])->name('updateDeduct');
+    //     Route::delete('/delete/{account}', [AC::class, 'destroy'])->name('delete');
         
-        });
+    //     });
 
 Auth::routes();
 

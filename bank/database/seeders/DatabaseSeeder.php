@@ -23,13 +23,11 @@ class DatabaseSeeder extends Seeder
         
         $faker = Faker::create('fr_FR');
 
-        foreach(range(1, 100) as $_) {
+        foreach(range(1, 50) as $_) {
             DB::table('clients')->insert([
                 'name' => $faker->firstName,
                 'surname' => $faker->lastName,
-                'account' => 'LT' . '60' . rand(0, 9)  . rand(0, 9)  . rand(0, 9)  . rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9)  . rand(0, 9) . rand(0, 9) . rand(0, 9) . rand(0, 9)  . rand(0, 9) . rand(0, 9) . rand(0, 9)  . rand(0, 9) . rand(0, 9),
-                'idPerson' => rand(30000000000, 69999999999),
-                'amount' => '0'
+                'idPerson' => rand(30000000000, 69999999999)
             ]);
         }
     }

@@ -23,23 +23,22 @@ class ClientController extends Controller
         $page = $request->page ?? 1;
 
 
-        $clients = match($filter) {
-            'plus' => Client::where('amount', '>', 0),
-            'minus' => Client::where('amount', '<', 0),
-            'zero' => Client::where('amount', '=', 0),
-            'noAcc' => Client::where('amount', '=', NULL),
-            default => Client::where('amount', '>', -999999)
-        };
+        // $clients = match($filter) {
+        //     'plus' => Client::where('amount', '>', 0),
+        //     'minus' => Client::where('amount', '<', 0),
+        //     'zero' => Client::where('amount', '=', 0),
+        //     'noAcc' => Client::where('amount', '=', NULL),
+        //     default => Client::where('amount', '>', -999999)
+        // };
 
-        $clients = match($sort) {
-            'surname_asc' => $clients->orderBy('surname'),
-            'surname_desc' => $clients->orderBy('surname', 'desc'),
-            default => $clients
-        };
+        // $clients = match($sort) {
+        //     'surname_asc' => $clients->orderBy('surname'),
+        //     'surname_desc' => $clients->orderBy('surname', 'desc') 
+        // };
 
-        $clients = $clients->paginate($per)->withQueryString();
-
-        // $clients = Client::all()->sortBy('surname');
+        // $clients = $clients->paginate($per)->withQueryString();
+        $clients = Client::where('id', '>', 0); 
+        
 
         return view('clients.index', [
             'clients' => $clients,
@@ -84,9 +83,7 @@ class ClientController extends Controller
         $client = new Client;
         $client->name = $request->name;
         $client->surname = $request->surname;
-        $client->account = $request->account;
         $client->idPerson = $request->idPerson;
-        $client->amount = $request->amount;
         $client->save();
         return redirect()
         ->route('clients-index')
