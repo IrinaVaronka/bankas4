@@ -20,12 +20,15 @@ class AccountController extends Controller
     }
 
     
-    public function create()
+    public function create(Request $request)
     {
         $clients = Client::all();
 
+        $id = $request->id ?? 0;
+
         return view('accounts.create', [
-            'clients' => $clients
+            'clients' => $clients, 
+            'id' => $id
         ]);
     }
 

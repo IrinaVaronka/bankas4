@@ -26,11 +26,12 @@
     <table class="table table-sm table-light table-striped table-bordered">
         <thead>
             <tr>
-                
+
                 <th scope="col">Account number</th>
                 <th scope="col">Account`s amount</th>
             </tr>
         </thead>
+        
         @forelse($client->account as $account)
         <tbody>
             <tr>
@@ -38,13 +39,14 @@
                 <td scope="col">{{ $account->amount }}</td>
             </tr>
         </tbody>
-    
-    </li>
-    @empty
-
-    @endforelse
+        </li>
+        @empty
+        <li class="list-group-item">
+            <div class="client-line noAcc">No accounts</div>
+        </li>
+        @endforelse
     </table>
 </ul>
-
+<div class="buttons"><a href="{{route('accounts-create', ['id' => $client])}}" class="btn btn-success">New account</a></div>
 </ul>
 @endsection

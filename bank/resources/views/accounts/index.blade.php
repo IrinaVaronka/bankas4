@@ -83,18 +83,24 @@
                     <td scope="col"><a class="client" href="{{route('clients-show', $account->accountClient)}}" scope="col">{{ $account->accountClient->name }} {{ $account->accountClient->surname }}</a></td>
                     <td scope="col">{{ $account->account }}</td>
                     <td scope="col">{{ $account->amount }}</td>
-                    <th scope="col"><a href="{{route('clients-show', $account)}}" class="btn btn-success">Show info</a></th>
-                    <th scope="col"><a href="{{route('clients-editPerson', $account)}}" class="btn btn-success">Edit personal info</a></th>
-                    <th scope="col"><a href="" class="btn btn-success">Add funds</a></th>
-                    <th scope="col"><a href="" class="btn btn-success">Deduct funds</a></th>
                 </tr>
             </tbody>
+            <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+    Dropdown button
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <a class="dropdown-item" href="{{route('clients-show', $account)}}" class="btn btn-success">Show info</a></li>
+                    <li><a class="dropdown-item" href="{{route('clients-editPerson', $account)}}" class="btn btn-success">Edit personal info</a></li>
+                    <li><a class="dropdown-item" href="" class="btn btn-success">Add funds</a></li>
+                    <li><a class="dropdown-item" href="" class="btn btn-success">Deduct funds</a></li>
+                     </ul>
+                    </div>
         </table>
         @empty
         <table class="table table-sm table-light table-striped table-bordered">
             <thead>
                 <tr>
-                    
                     <th scope="col">Account number</th>
                     <th scope="col">Account`s amount</th>
             </thead>
@@ -103,6 +109,7 @@
             </tbody>
         </table>
         @endforelse
+        
     </ul>
     {{-- <div class="m-4">
         {{ $clients->links() }}
