@@ -6,7 +6,7 @@
         <div class="col-5">
             <div class="card mt-5">
                 <div class="card-header">
-                    <h1 class="text-center">Edit personal information</h1>
+                    <h1 class="text-center edit">Edit personal information</h1>
                 </div>
                 <div class="card-body">
                     <form class="form-create" action="{{route('clients-updatePerson', $client)}}" method="post">

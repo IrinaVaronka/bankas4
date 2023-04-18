@@ -1,11 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-</form>
+
 <h1 class="text-center">Client information: {{$client->name}} </h1>
-    <ul>
-        
-            <table class="table table-sm table-success table-striped table-bordered">
+
+
+    <ul class="list-group m-4">
+            <table class="table table-sm table-light table-striped table-bordered">
             <thead>
             <tr>
              <th scope="col">Name</th>
@@ -30,3 +31,4 @@
        
     </ul>
 @endsection
+

@@ -25,8 +25,8 @@
 
                             <div class="form-button mt-3">
                                 <button id="submit" type="submit" class="btn btn-primary">Add client</button>
+                                 @csrf
                             </div>
-                            @csrf
                         </form>
                     </div>
                 </div>

@@ -17,10 +17,10 @@ class ClientController extends Controller
     
     public function index(Request $request)
     {
-        $sort = $request->sort ?? '';
-        $filter = $request->filter ?? '';
-        $per = (int) ($request->per ?? 5);
-        $page = $request->page ?? 1;
+        // $sort = $request->sort ?? '';
+        // $filter = $request->filter ?? '';
+        // $per = (int) ($request->per ?? 5);
+        // $page = $request->page ?? 1;
 
 
         // $clients = match($filter) {
@@ -37,18 +37,18 @@ class ClientController extends Controller
         // };
 
         // $clients = $clients->paginate($per)->withQueryString();
-        $clients = Client::where('id', '>', 0); 
+        $clients = Client::all(); 
         
 
         return view('clients.index', [
             'clients' => $clients,
-            'sortSelect' => Client::SORT,
-            'sort' => $sort,
-            'filterSelect' => Client::FILTER,
-            'filter' => $filter,
-            'perSelect' => Client::PER,
-            'per' => $per,
-            'page' => $page
+            // 'sortSelect' => Client::SORT,
+            // 'sort' => $sort,
+            // 'filterSelect' => Client::FILTER,
+            // 'filter' => $filter,
+            // 'perSelect' => Client::PER,
+            // 'per' => $per,
+            // 'page' => $page
         ]);
     }
 
