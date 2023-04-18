@@ -31,19 +31,28 @@ class ClientController extends Controller
         //     default => Client::where('amount', '>', -999999)
         // };
 
-        // $clients = match($sort) {
+        
+
+        // $clients = match($request->sort ?? '') {
         //     'surname_asc' => $clients->orderBy('surname'),
-        //     'surname_desc' => $clients->orderBy('surname', 'desc') 
+        //     'surname_desc' => $clients->orderBy('surname', 'desc'),
+            
         // };
 
+         $clients = Client::all()->sortBy('surname');
+
+
+
         // $clients = $clients->paginate($per)->withQueryString();
-        $clients = Client::all(); 
+
+        
         
 
         return view('clients.index', [
-            'clients' => $clients,
+            'clients' => $clients
+            
             // 'sortSelect' => Client::SORT,
-            // 'sort' => $sort,
+            // 'sort' => $request->s ?? '',
             // 'filterSelect' => Client::FILTER,
             // 'filter' => $filter,
             // 'perSelect' => Client::PER,

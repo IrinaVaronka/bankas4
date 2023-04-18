@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+
 <form class="mt-4">
     <h1 class="text-center">Clients DataBase</h1>
 
-    <form action="{{route('clients-index')}}" method="get" class="mt-4">
+    {{-- <form action="{{route('clients-index')}}" method="get" class="mt-4">
 
         <div class="container">
             <div class="row">
@@ -13,9 +14,9 @@
                     <div class="mb-3">
                         <label class="form-label">Sort</label>
                         <select class="form-select" name="sort">
-                            {{-- @foreach($sortSelect as $value => $text)
+                            @foreach($sortSelect as $value => $text)
                             <option value="{{$value}}" @if($value===$sort) selected @endif>{{$text}}</option>
-                            @endforeach --}}
+                            @endforeach
                         </select>
                         <div class="form-text">Please select your sort preferences</div>
                     </div>
@@ -25,9 +26,9 @@
                     <div class="mb-3">
                         <label class="form-label">Filter</label>
                         <select class="form-select" name="filter">
-                            {{-- @foreach($filterSelect as $value => $text)
+                            @foreach($filterSelect as $value => $text)
                             <option value="{{$value}}" @if($value===$filter) selected @endif>{{$text}}</option>
-                            @endforeach --}}
+                            @endforeach
                         </select>
                         <div class="form-text">Please select your filter preferences</div>
                     </div>
@@ -37,9 +38,9 @@
                     <div class="mb-3">
                         <label class="form-label">Results per page</label>
                         <select class="form-select" name="per">
-                            {{-- @foreach($perSelect as $value => $text)
+                            @foreach($perSelect as $value => $text)
                                 <option value="{{$value}}" @if($value===$per) selected @endif>{{$text}}</option>
-                            @endforeach --}}
+                            @endforeach
                         </select>
                         <div class="form-text">View preferences</div>
                     </div>
@@ -54,18 +55,20 @@
 
             </div>
         </div> 
-    </form>
-    <ul class="list-group m-4">
+    </form> --}}
+    <div class="container">
+<div class="row">
+    
         @forelse($clients as $client)
         <table class="table table-sm table-light table-striped table-bordered ml-4">
             <thead>
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Surname</th>
-                    <th scope="col">Account number</th>
+                    {{-- <th scope="col">Account number</th> --}}
                     <th scope="col">Personal ID</th>
-                    <th scope="col">Account`s amount</th>
-                    <th colspan="4" class="table-active">
+                    {{-- <th scope="col">Account`s amount</th> --}}
+                    <th  class="table-active">
                         <form action="{{route('clients-delete', $client)}}" method="post">
                             <button type="submit" class="btn btn-danger">Delete Account</button>
                             @csrf
@@ -76,16 +79,16 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ $client->name }}</td>
-                    <td>{{ $client->surname }}</td>
-                    <td>{{ $client->account }}</td>
-                    <td>{{ $client->idPerson }}</td>
-                    <td>{{ $client->amount }}</td>
+                    <td scope="col">{{ $client->name }}</td>
+                    <td scope="col">{{ $client->surname }}</td>
+                    {{-- <td>{{ $client->account }}</td> --}}
+                    <td scope="col">{{ $client->idPerson }}</td>
+                    {{-- <td>{{ $client->amount }}</td> --}}
                    
                     <th scope="col"><a href="{{route('clients-show', $client)}}" class="btn btn-success">Show info</a></th>
                     <th scope="col"><a href="{{route('clients-editPerson', $client)}}" class="btn btn-success">Edit personal info</a></th>
-                    <th scope="col"><a href="{{route('clients-edit', $client)}}" class="btn btn-success">Add funds</a></th>
-                    <th scope="col"><a href="{{route('clients-editDeduct', $client)}}" class="btn btn-success">Deduct funds</a></th>
+                    {{-- <th scope="col"><a href="{{route('clients-edit', $client)}}" class="btn btn-success">Add funds</a></th>
+                    <th scope="col"><a href="{{route('clients-editDeduct', $client)}}" class="btn btn-success">Deduct funds</a></th> --}}
                 </tr>
             </tbody>
         </table>
@@ -95,9 +98,9 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Surname</th>
-                    <th scope="col">Account number</th>
+                    {{-- <th scope="col">Account number</th> --}}
                     <th scope="col">Personal ID</th>
-                    <th scope="col">Account`s amount</th>
+                    {{-- <th scope="col">Account`s amount</th> --}}
             </thead>
             <tbody>
                 <td colspan="5" class="empty">No clients yet</td>
@@ -108,4 +111,6 @@
     {{-- <div class="m-4">
         {{ $clients->links() }}
     </div> --}}
+      </div>
+</div>
     @endsection

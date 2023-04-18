@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
         
         $faker = Faker::create('fr_FR');
 
-        foreach(range(1, 50) as $_) {
+        foreach(range(1, 15) as $_) {
             DB::table('clients')->insert([
                 'name' => $faker->firstName,
                 'surname' => $faker->lastName,
