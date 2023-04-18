@@ -3,7 +3,7 @@
 @section('content')
 
 <form class="mt-4">
-    <h1 class="text-center">Clients DataBase</h1>
+    <h1 class="text-center">Accounts List</h1>
 
     {{-- <form action="{{route('clients-index')}}" method="get" class="mt-4">
 
@@ -59,36 +59,34 @@
     <div class="container">
 <div class="row">
     
-        @forelse($clients as $client)
+        @forelse($accounts as $account)
         <table class="table table-sm table-light table-striped table-bordered ml-4">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Surname</th>
-                    {{-- <th scope="col">Account number</th> --}}
-                    <th scope="col">Personal ID</th>
-                    {{-- <th scope="col">Account`s amount</th> --}}
-                    <th  class="table-active">
-                        {{-- <form action="{{route('clients-delete', $client)}}" method="post">
+                
+                    <th scope="col">Account number</th>
+                    <th scope="col">Account`s amount</th>
+                    <th class="table-active">
+                    <div class="col">
+                        <form action="{{route('accounts-delete', $account)}}" method="post">
                             <button type="submit" class="btn btn-danger">Delete Account</button>
                             @csrf
                             @method('delete')
-                        </form> --}}
+                        </form>
+                        </div>
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td scope="col">{{ $client->name }}</td>
-                    <td scope="col">{{ $client->surname }}</td>
-                    {{-- <td>{{ $client->account }}</td> --}}
-                    <td scope="col">{{ $client->idPerson }}</td>
-                    {{-- <td>{{ $client->amount }}</td> --}}
-                   
-                    <th scope="col"><a href="{{route('clients-show', $client)}}" class="btn btn-success">Show info</a></th>
-                    <th scope="col"><a href="{{route('clients-editPerson', $client)}}" class="btn btn-success">Edit personal info</a></th>
-                    {{-- <th scope="col"><a href="{{route('clients-edit', $client)}}" class="btn btn-success">Add funds</a></th>
-                    <th scope="col"><a href="{{route('clients-editDeduct', $client)}}" class="btn btn-success">Deduct funds</a></th> --}}
+                
+                    <td scope="col"><a class="client" href="{{route('clients-show', $account->accountClient)}}" scope="col">{{ $account->accountClient->name }} {{ $account->accountClient->surname }}</a></td>
+                    <td scope="col">{{ $account->account }}</td>
+                    <td scope="col">{{ $account->amount }}</td>
+                    <th scope="col"><a href="{{route('clients-show', $account)}}" class="btn btn-success">Show info</a></th>
+                    <th scope="col"><a href="{{route('clients-editPerson', $account)}}" class="btn btn-success">Edit personal info</a></th>
+                    <th scope="col"><a href="" class="btn btn-success">Add funds</a></th>
+                    <th scope="col"><a href="" class="btn btn-success">Deduct funds</a></th>
                 </tr>
             </tbody>
         </table>
@@ -96,11 +94,9 @@
         <table class="table table-sm table-light table-striped table-bordered">
             <thead>
                 <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Surname</th>
-                    {{-- <th scope="col">Account number</th> --}}
-                    <th scope="col">Personal ID</th>
-                    {{-- <th scope="col">Account`s amount</th> --}}
+                    
+                    <th scope="col">Account number</th>
+                    <th scope="col">Account`s amount</th>
             </thead>
             <tbody>
                 <td colspan="5" class="empty">No clients yet</td>

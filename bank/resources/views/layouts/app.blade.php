@@ -46,9 +46,8 @@
                             </div>
                         </li>
 
-                        
-
-                        {{-- <li class="nav-item dropdown">
+                    
+                        <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 Accounts
                             </a>
@@ -61,7 +60,7 @@
                                     New account
                                 </a>
                             </div>
-                        </li> --}}
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
