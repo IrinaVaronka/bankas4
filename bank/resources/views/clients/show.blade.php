@@ -31,7 +31,7 @@
                 <th scope="col">Account`s amount</th>
             </tr>
         </thead>
-        
+
         @forelse($client->account as $account)
         <tbody>
             <tr>
@@ -48,5 +48,13 @@
     </table>
 </ul>
 <div class="buttons"><a href="{{route('accounts-create', ['id' => $client])}}" class="btn btn-success">New account</a></div>
+<div class="buttons">
+    <form action="{{route('accounts-delete', $account)}}" method="post">
+        <button type="submit" class="btn btn-danger">Delete Account</button>
+        @csrf
+        @method('delete')
+    </form>
+</div>
+
 </ul>
 @endsection

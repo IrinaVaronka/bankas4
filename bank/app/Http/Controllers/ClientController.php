@@ -52,7 +52,7 @@ class ClientController extends Controller
             'clients' => $clients
             
             // 'sortSelect' => Client::SORT,
-            // 'sort' => $request->s ?? '',
+            // 'sort' => $request-> ?? '',
             // 'filterSelect' => Client::FILTER,
             // 'filter' => $filter,
             // 'perSelect' => Client::PER,

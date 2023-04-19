@@ -12,10 +12,37 @@ class AccountController extends Controller
     
     public function index()
     {
-        $accounts = Account::all();
+        // $sort = $request->sort ?? '';
+        // $filter = $request->filter ?? '';
+        
+
+        //  $accounts = match($filter) {
+        //         'plus' => Account::where('amount', '>', 0),
+        //         'minus' => Account::where('amount', '<', 0),
+        //         'zero' => Account::where('amount', '=', 0),
+        //         'noAcc' => Account::where('amount', '=', NULL),
+        //         default => Account::where('amount', '>', -999999)
+        //     };
+            
+        //     $accounts = match($sort) {
+        //         'surname_asc' => $accounts->orderBy('surname'),
+        //         'surname_desc' => $accounts->orderBy('surname', 'desc'),
+
+            // };
+
+            // $accounts = $accounts->get();
+
+            // $accounts = $accounts->paginate(3)->withQueryString();
+
+
+          $accounts = Account::all();
 
         return view('accounts.index', [
             'accounts' => $accounts
+            // 'sortSelect' => Account::SORT,
+            // 'sort' => $sort,
+            // 'filterSelect' => Account::FILTER,
+            // 'filter' => $filter
         ]);
     }
 
