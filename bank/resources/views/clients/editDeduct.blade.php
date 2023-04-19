@@ -18,7 +18,7 @@
                         <input type="text" name="account" class="form-control" readonly value="{{ $client->account }}">
                         <label>Client`s amount: </label>
                         <input type="text" name="amount" class="form-control" readonly value="{{ $client->amount }}">
-                        <label>Add funds, EUR: </label>
+                        <label>Deduct funds, EUR: </label>
                         <input type="text" name="amount" class="form-control"  >
                         <button type="submit" class="btn btn-lg btn-primary btn-block buttons">Deduct</button>
                         @csrf

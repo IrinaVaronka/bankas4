@@ -85,7 +85,7 @@
                     <td scope="col">{{ $client->idPerson }}</td>
                     {{-- <td>{{ $client->amount }}</td> --}}
                    
-                    <th scope="col"><a href="{{route('clients-show', $client)}}" class="btn btn-success">Show info</a></th>
+                    {{-- <th scope="col"><a href="{{route('clients-show', $client)}}" class="btn btn-success">Show info</a></th> --}}
                     <th scope="col"><a href="{{route('clients-editPerson', $client)}}" class="btn btn-success">Edit personal info</a></th>
                     {{-- <th scope="col"><a href="{{route('clients-edit', $client)}}" class="btn btn-success">Add funds</a></th>
                     <th scope="col"><a href="{{route('clients-editDeduct', $client)}}" class="btn btn-success">Deduct funds</a></th> --}}

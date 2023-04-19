@@ -41,7 +41,7 @@ class AccountController extends Controller
             'client_id' => $request->client_id
         ]);
 
-        return redirect()->back();
+        return redirect()->route('accounts-index');
     }
 
     
@@ -53,13 +53,56 @@ class AccountController extends Controller
     
     public function edit(Account $account)
     {
-        //
+        return view('accounts.edit', [
+            'account' => $account
+        ]);
     }
 
     
     public function update(Request $request, Account $account)
     {
-        //
+        
+        if($request->amount <=0) {
+            $request->flash();
+            
+            return redirect()->back()->with('info', 'Please add only positive numbers');
+        }
+
+        if(!$request->type) {
+            $account->amount = $account->amount + $request->amount;
+            $account->save();
+        
+            return redirect()
+            ->route('accounts-index')
+            ->with('info', 'Funds was added');  
+     
+        }
+    }
+
+    public function editDeduct(Account $account)
+    {
+        return view('accounts.editDeduct', [
+            'account' => $account
+        ]);
+    }
+
+    public function updateDeduct(Request $request, Account $account)
+    {
+        
+        if($request->amount <=0) {
+            $request->flash();
+            
+            return redirect()->back()->with('info', 'Please add only positive numbers');
+        }
+
+        else {
+            $account->amount = $account->amount - $request->amount;
+            $account->save();
+        
+            return redirect()
+            ->route('accounts-index')
+            ->with('info', 'Funds was deducted');  
+        }
     }
 
     

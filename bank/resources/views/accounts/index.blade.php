@@ -87,13 +87,13 @@
             </tbody>
             <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Dropdown button
+   Actions
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
             <a class="dropdown-item" href="{{route('clients-show', $account)}}" class="btn btn-success">Show info</a></li>
                     <li><a class="dropdown-item" href="{{route('clients-editPerson', $account)}}" class="btn btn-success">Edit personal info</a></li>
-                    <li><a class="dropdown-item" href="" class="btn btn-success">Add funds</a></li>
-                    <li><a class="dropdown-item" href="" class="btn btn-success">Deduct funds</a></li>
+                    <li><a class="dropdown-item" href="{{route('accounts-edit', $account)}}" class="btn btn-success">Add funds</a></li>
+                    <li><a class="dropdown-item" href="{{route('accounts-editDeduct', $account)}}" class="btn btn-success">Deduct funds</a></li>
                      </ul>
                     </div>
         </table>
