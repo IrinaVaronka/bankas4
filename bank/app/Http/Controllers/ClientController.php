@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Account;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -170,17 +171,26 @@ class ClientController extends Controller
     }
 
    
-    public function destroy(Client $client)
+    public function destroy(Request $request, Client $client)
     {
-        if ($client->amount > 0) {
-            return redirect()
-                ->route('clients-index')
-                ->with('info','Client account not empty!');
-        }
+        
+            
+        if (!$client->account()->count()) {
 
-        $client->delete();
-        return redirect()
-        ->route('clients-index')
-        ->with('info', 'The client was deleted!');
-    }
+             $client->delete();
+            
+             return redirect()->route('clients-index')->with('info', 'Client was deleted');
+            
+             }
+            
+             return redirect()->back()->with('info', 'Client has account(s)');
+            
+             }
+
+    
+        
+
+    
+
 }
+

@@ -65,28 +65,24 @@
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Surname</th>
-                    {{-- <th scope="col">Account number</th> --}}
                     <th scope="col">Personal ID</th>
-                    {{-- <th scope="col">Account`s amount</th> --}}
-                    <th  class="table-active">
-                        {{-- <form action="{{route('clients-delete', $client)}}" method="post">
-                            <button type="submit" class="btn btn-danger">Delete Account</button>
-                            @csrf
-                            @method('delete')
-                        </form> --}}
-                    </th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
+            <div class="accounts-count">orders: {{$client->account->count()}}</div>
                 <tr>
                     <td scope="col">{{ $client->name }}</td>
                     <td scope="col">{{ $client->surname }}</td>
                     {{-- <td>{{ $client->account }}</td> --}}
                     <td scope="col">{{ $client->idPerson }}</td>
                     {{-- <td>{{ $client->amount }}</td> --}}
+                    
                    
-                    {{-- <th scope="col"><a href="{{route('clients-show', $client)}}" class="btn btn-success">Show info</a></th> --}}
+                    <th scope="col"><a href="{{route('clients-show', $client)}}" class="btn btn-success">Show info</a></th>
                     <th scope="col"><a href="{{route('clients-editPerson', $client)}}" class="btn btn-success">Edit personal info</a></th>
+                    
                     {{-- <th scope="col"><a href="{{route('clients-edit', $client)}}" class="btn btn-success">Add funds</a></th>
                     <th scope="col"><a href="{{route('clients-editDeduct', $client)}}" class="btn btn-success">Deduct funds</a></th> --}}
                 </tr>

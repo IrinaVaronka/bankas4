@@ -135,6 +135,12 @@ class AccountController extends Controller
     
     public function destroy(Account $account)
     {
-        //
+        if ($account->amount != 0) {
+            return redirect()->back()->with('info', 'Account have funds!');
+        }
+        else {
+            $account->delete();
+            return redirect()->route('clients-index')->with('info', 'Account was deleted');
+        }
     }
 }

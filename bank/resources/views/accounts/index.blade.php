@@ -83,10 +83,14 @@
    Actions
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <a class="dropdown-item" href="{{route('clients-show', $account)}}" class="btn btn-success">Show info</a></li>
-                    <li><a class="dropdown-item" href="{{route('clients-editPerson', $account)}}" class="btn btn-success">Edit personal info</a></li>
+            <a class="dropdown-item" href="{{route('accounts-show', $account)}}" class="btn btn-success">Show info</a></li>
                     <li><a class="dropdown-item" href="{{route('accounts-edit', $account)}}" class="btn btn-success">Add funds</a></li>
                     <li><a class="dropdown-item" href="{{route('accounts-editDeduct', $account)}}" class="btn btn-success">Deduct funds</a></li>
+                    {{-- <form action="{{route('accounts-delete', $account)}}" method="post">
+                                        <button type="submit" class="btn btn-danger">Delete account</button>
+                                        @csrf
+                                        @method('delete')
+                                    </form> --}}
                      </ul>
                     </div>
         </table>

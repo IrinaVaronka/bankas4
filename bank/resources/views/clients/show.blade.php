@@ -35,9 +35,20 @@
         @forelse($client->account as $account)
         <tbody>
             <tr>
-                <td scope="col">{{ $account->account }}</td>
-                <td scope="col">{{ $account->amount }}</td>
+                <td scope="col">{{ $account->account }}
+                <div class="">
+                                    <form action="{{route('accounts-delete', $account)}}" method="post">
+                                        <button type="submit" class="btn btn-danger">delete</button>
+                                        @csrf
+                                        @method('delete')
+                                    </form>
+                                </div>
+                </td>
+                <td scope="col">{{ $account->amount }}
+                
+                </td>
             </tr>
+            
         </tbody>
         </li>
         @empty
@@ -49,8 +60,8 @@
 </ul>
 <div class="buttons"><a href="{{route('accounts-create', ['id' => $client])}}" class="btn btn-success">New account</a></div>
 <div class="buttons">
-    <form action="{{route('accounts-delete', $account)}}" method="post">
-        <button type="submit" class="btn btn-danger">Delete Account</button>
+    <form action="{{route('clients-delete', $client)}}" method="post">
+        <button type="submit" class="btn btn-danger">Delete client</button>
         @csrf
         @method('delete')
     </form>
