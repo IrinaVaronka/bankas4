@@ -10,6 +10,7 @@ class Account extends Model
     use HasFactory;
 
     const SORT = [
+        
         'surname_asc' => 'By surname A-Z',
         'surname_desc' => 'By surname Z-A',
     ];
