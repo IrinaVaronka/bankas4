@@ -12,7 +12,7 @@ class AccountController extends Controller
     
     public function index(Request $request)
     {
-        $sort = $request->sort ?? '';
+       
         $filter = $request->filter ?? '';
         
 
@@ -25,12 +25,7 @@ class AccountController extends Controller
             };
 
            
-            
-            $accounts = match($sort) {
-                'surname_asc' => $accounts->orderBy('surname'),
-                'surname_desc' => $accounts->orderBy('surname', 'desc'),
-                
-            };
+        
 
             $accounts = $accounts->get();
 
@@ -43,8 +38,6 @@ class AccountController extends Controller
 
         return view('accounts.index', [
             'accounts' => $accounts, 
-            'sortSelect' => Account::SORT,
-            'sort' => $sort,
             'filterSelect' => Account::FILTER,
             'filter' => $filter
         ]);

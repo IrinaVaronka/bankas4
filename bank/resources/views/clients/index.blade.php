@@ -5,7 +5,7 @@
 <form class="mt-4">
     <h1 class="text-center">Clients DataBase</h1>
 
-    {{-- <form action="{{route('clients-index')}}" method="get" class="mt-4">
+    <form action="{{route('clients-index')}}" method="get" class="mt-4">
 
         <div class="container">
             <div class="row">
@@ -22,29 +22,9 @@
                     </div>
                 </div>
 
-                <div class="col-4">
-                    <div class="mb-3">
-                        <label class="form-label">Filter</label>
-                        <select class="form-select" name="filter">
-                            @foreach($filterSelect as $value => $text)
-                            <option value="{{$value}}" @if($value===$filter) selected @endif>{{$text}}</option>
-                            @endforeach
-                        </select>
-                        <div class="form-text">Please select your filter preferences</div>
-                    </div>
-                </div>
+                
 
-                <div class="col-2">
-                    <div class="mb-3">
-                        <label class="form-label">Results per page</label>
-                        <select class="form-select" name="per">
-                            @foreach($perSelect as $value => $text)
-                                <option value="{{$value}}" @if($value===$per) selected @endif>{{$text}}</option>
-                            @endforeach
-                        </select>
-                        <div class="form-text">View preferences</div>
-                    </div>
-                </div>
+               
 
                 <div class="col-2">
                     <div class="sort-filter-buttons">
@@ -55,7 +35,7 @@
 
             </div>
         </div> 
-    </form> --}}
+    </form>
     <div class="container">
 <div class="row">
     
@@ -104,9 +84,9 @@
         </table>
         @endforelse
     </ul>
-    {{-- <div class="m-4">
+    <div class="m-4">
         {{ $clients->links() }}
-    </div> --}}
+    </div>
       </div>
 </div>
     @endsection

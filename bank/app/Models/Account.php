@@ -19,8 +19,8 @@ class Account extends Model
         'default' => 'Show all',
         'plus' => 'Only plus accounts',
         'minus' => 'Only minus accounts',
-        'zero' => 'Only zero accounts',
-        'noAcc' => 'Clients who do not have accounts',
+        'zero' => 'Only zero accounts'
+        // 'noAcc' => 'Clients who do not have accounts',
     ];
 
     const PER = [

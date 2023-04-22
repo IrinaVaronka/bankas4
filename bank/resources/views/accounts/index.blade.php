@@ -8,7 +8,7 @@
     <form action="{{route('accounts-index')}}" method="get" class="mt-4">
         <div class="container">
             <div class="row">
-                <div class="col-4">
+                {{-- <div class="col-4">
                     <div class="mb-3">
                         <label class="form-label">Sort</label>
                         <select class="form-select" name="sort">
@@ -18,7 +18,7 @@
                         </select>
                         <div class="form-text">Please select your sort preferences</div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="col-4">
                     <div class="mb-3">

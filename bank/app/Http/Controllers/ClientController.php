@@ -18,29 +18,23 @@ class ClientController extends Controller
     
     public function index(Request $request)
     {
-        // $sort = $request->sort ?? '';
-        // $filter = $request->filter ?? '';
-        // $per = (int) ($request->per ?? 5);
-        // $page = $request->page ?? 1;
+        $sort = $request->sort ?? '';
+        
 
-
-        // $clients = match($filter) {
-        //     'plus' => Client::where('amount', '>', 0),
-        //     'minus' => Client::where('amount', '<', 0),
-        //     'zero' => Client::where('amount', '=', 0),
-        //     'noAcc' => Client::where('amount', '=', NULL),
-        //     default => Client::where('amount', '>', -999999)
-        // };
 
         
 
-        // $clients = match($request->sort ?? '') {
-        //     'surname_asc' => $clients->orderBy('surname'),
-        //     'surname_desc' => $clients->orderBy('surname', 'desc'),
+        $clients = match($sort) {
+            'surname_asc' => Client::orderBy('surname'),
+            'surname_desc' => Client::orderBy('surname', 'desc'),
+            default => Client::where('id', '!=', 0)
             
-        // };
+        };
 
-         $clients = Client::all()->sortBy('surname');
+        $clients = $clients->paginate(5)->withQueryString();
+
+
+        //  $clients = Client::all()->sortBy('surname');
 
 
 
@@ -50,15 +44,9 @@ class ClientController extends Controller
         
 
         return view('clients.index', [
-            'clients' => $clients
-            
-            // 'sortSelect' => Client::SORT,
-            // 'sort' => $request-> ?? '',
-            // 'filterSelect' => Client::FILTER,
-            // 'filter' => $filter,
-            // 'perSelect' => Client::PER,
-            // 'per' => $per,
-            // 'page' => $page
+            'clients' => $clients,
+            'sortSelect' => Client::SORT,
+            'sort' => $sort,
         ]);
     }
 

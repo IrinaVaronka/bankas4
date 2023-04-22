@@ -25,31 +25,31 @@
                 <ul class="list-group">
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Number of clients:
-                        <span class="badge bg-primary rounded-pill">14</span>
+                        <span class="badge bg-primary rounded-pill"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Number of clients accounts:
-                        <span class="badge bg-primary rounded-pill">2</span>
+                        <span class="badge bg-primary rounded-pill"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Total amount of funds:
-                        <span class="badge bg-primary rounded-pill">1</span>
+                        <span class="badge bg-primary rounded-pill"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Maximum amount in one account:
-                        <span class="badge bg-primary rounded-pill">1</span>
+                        <span class="badge bg-primary rounded-pill"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Average amount of accounts:
-                        <span class="badge bg-primary rounded-pill">1</span>
+                        <span class="badge bg-primary rounded-pill"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Number of accounts with 0 balances:
-                        <span class="badge bg-primary rounded-pill">1</span>
+                        <span class="badge bg-primary rounded-pill"></span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center">
                         Number of accounts with minus balance:
-                        <span class="badge bg-primary rounded-pill">1</span>
+                        <span class="badge bg-primary rounded-pill"></span>
                     </li>
                 </ul>
             </div>
